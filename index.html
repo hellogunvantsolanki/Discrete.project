@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hasse Diagram Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Hasse Diagram Generator</h1>
+  <p class="sub">Enter a poset and get its Hasse diagram instantly. <span style="color:var(--ac)">●</span> Red glow = minimal / maximal elements.</p>
+  <div class="grid">
+    <div class="card">
+      <label for="rel">Relation</label>
+      <select id="rel">
+        <option value="div">Divisibility (a | b)</option>
+        <option value="le">Usual order (≤)</option>
+        <option value="sub">Subset (⊆)</option>
+        <option value="custom">Custom pairs</option>
+      </select>
+      <label for="els" id="elsL">Elements (comma separated)</label>
+      <textarea id="els">1, 2, 3, 4, 6, 12</textarea>
+      <div id="pairsBox" style="display:none">
+        <label for="pairs">Relations (a&lt;b means a ≤ b)</label>
+        <textarea id="pairs">a<b, a<c, b<d, c<d</textarea>
+      </div>
+      <div class="hint" id="hint"></div>
+      <button class="go" id="go">Draw Hasse Diagram</button>
+      <div id="err"></div>
+      <label>Examples</label>
+      <div class="chips" id="chips"></div>
+    </div>
+    <div class="card">
+      <div class="top"><b>Diagram</b><button class="dl" id="dl">Download SVG</button></div>
+      <div id="stage"></div>
+      <div class="info" id="info"></div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
